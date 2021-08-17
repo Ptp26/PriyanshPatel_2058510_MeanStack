@@ -1,0 +1,80 @@
+<!-- <div>
+    <h2>I am trying out the toogle function</h2>
+</div>
+<button (click) = "toogletag()"> Toogle h2 tag </button>
+<div *ngIf = "showMe">
+    <h2> This is function is going to be toogeled </h2>
+</div> -->
+
+
+<div>
+    <div *ngIf = "showMe2">
+        <h2 style="border: 2px ; background-color:  darkcyan; text-align: center;">Sign-Up Page</h2>
+    <hr/>
+    <div class="input-group mb-3">
+    <form #signupRef="ngForm" (ngSubmit)="checksignup(signupRef)"> 
+          
+    <label  style="justify-content: center;">UserName :</label>
+    <input type="text" name="user" ngModel required minlength="2"/><br/>
+    <label style="justify-content: center;">Password :</label>
+    <input type="password" name="pass" ngModel required/><br/>
+    <label style="justify-content: center;"> Confirm Password :</label>
+    <input type="password" name="pass1" ngModel required/><br/>
+    
+    <input type="submit" value="submit" [disabled]="!signupRef.valid"/>
+    <input type="reset" value="reset"/>
+    </form>
+
+    <br/>
+<br/>   
+   
+    </div>
+    <p>{{msg}}</p>
+</div>
+</div>
+
+<div *ngIf = "showMe1">
+    <h2 style="border: 2px ; background-color:  darkcyan; text-align: center;">Login Page</h2>
+<hr/>
+<div class="input-group mb-3">
+<form #loginRef="ngForm" (ngSubmit)="checkUser(loginRef)">
+<label>UserName</label>
+<input type="text" name="user" ngModel required minlength="2"/><br/>
+<label>Password</label>
+<input type="password" name="pass" ngModel required/><br/>
+
+<input type="submit" value="submit" [disabled]="!loginRef.valid" />
+<input type="reset" value="reset"/>
+</form>
+<br/>
+<br/>
+
+</div>
+<p>{{msg1}}</p>
+</div>
+<hr>
+<div *ngIf = "showMe">
+    <h1 style="border: 2px ; background-color:  darkcyan; text-align: center;">Contacts</h1>
+    <label> Contact Name : </label>
+    <input #name placeholder="name" /> 
+    <br/>
+    <br/>
+    <label> Phone Number : </label>
+    <input #phone placeholder="phone" /><br/>
+    <br/>
+    <button (click)="addContact(name.value,phone.value)">Add Contact</button>
+    <br>
+    <hr>
+    <h2 style="border: 2px ; background-color: darkcyan; text-align: center;"> Your amazing Portfolio </h2>
+
+    <table border = 1 class = "table" >
+        <tr *ngFor="let contact of contacts" style="margin-bottom: 10px;">
+            <!-- <th>Name</th>
+            <th>Phone No</th> -->
+            <td>{{contact.name}}</td> <br/>
+            <td>{{contact.phone}}</td> <br/> 
+            
+            <td><button (click)="removeContact(contact)">Delete</button></td>
+        </tr>
+    </table>
+</div>
